@@ -210,6 +210,7 @@
             btnCancel.Text = "Cancel";
             btnCancel.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // btnSave
             // 
@@ -221,6 +222,7 @@
             btnSave.Text = "Save";
             btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // ProductForm
             // 
@@ -232,6 +234,7 @@
             Name = "ProductForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "ProductForm";
+            FormClosing += ProductForm_FormClosing;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nuPrice).EndInit();

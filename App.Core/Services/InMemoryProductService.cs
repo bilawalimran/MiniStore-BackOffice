@@ -18,22 +18,42 @@ namespace App.Core.Services
         }
         public Product Add(Product product)
         {
-            throw new NotImplementedException();
+            if (product != null)
+            {
+                product.Id = GenerateId();
+                _products.Add(product);
+            }
+            return product;
         }
+        
 
         public bool Update(Product product)
         {
-            throw new NotImplementedException();
+            if (product != null)
+            {
+                Product? existing = _products.Find(p => p.Id == product.Id);
+                if (existing == null) return false;
+                existing.Name = product.Name;
+                existing.Category = product.Category;
+                existing.Price = product.Price;
+                existing.Status = product.Status;
+                existing.Stock = product.Stock;
+                return true;
+            }
+            return false;
         }
 
         public bool Delete(string id)
         {
-            throw new NotImplementedException();
+            Product prodToBeDeleted = GetById(id);
+            _products.Remove(prodToBeDeleted);
+            return true;
         }
 
         public Product GetById(string id)
         {
-            throw new NotImplementedException();
+            Product? prod = _products.Find(p => p.Id == id);
+            return prod;
         }
 
 
@@ -45,7 +65,15 @@ namespace App.Core.Services
 
         public List<Product> Search(string text, ProductCategoryEnum? category, ProductStatusEnum? status)
         {
-            throw new NotImplementedException();
+            //LINQ
+            List<Product> _filtered = _products.ToList();
+            _filtered = _filtered.Where(p => p.Name.Contains(text)).ToList();
+
+            if (category is not null)
+            {
+                _filtered = _filtered.Where(p => p.Category == category).ToList();
+            }
+            return _filtered;
         }
         private void GenerateFakeProducts()
         {
