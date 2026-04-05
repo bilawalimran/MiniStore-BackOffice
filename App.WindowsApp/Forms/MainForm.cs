@@ -16,7 +16,8 @@ namespace App.WindowsApp.Forms
     public partial class MainForm : Form
     {
         InMemoryProductService _productService = new InMemoryProductService();
-        private readonly Dictionary<Type,UserControl> _views = new Dictionary<Type,UserControl>();
+        InMemoryCustomerService _customerService = new InMemoryCustomerService();
+        private readonly Dictionary<Type, UserControl> _views = new Dictionary<Type, UserControl>();
         public MainForm()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace App.WindowsApp.Forms
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            
+
             this.pnlContent.Controls.Clear();
             this.pnlContent.Controls.Add(new ProductsView(_productService));
         }
@@ -77,24 +78,35 @@ namespace App.WindowsApp.Forms
 
         }
 
-        
+
 
         private void btnOrders_Click(object sender, EventArgs e)
         {
 
         }
-        private void ShowView<T>(Func<T> factory) where T:UserControl
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            ShowView(() => new CustomerView(_customerService));
+        }
+
+        private void ShowView<T>(Func<T> factory) where T : UserControl
         {
             var key = typeof(T);
 
-            if(!_views.TryGetValue(key, out var view))
+            if (!_views.TryGetValue(key, out var view))
             {
                 view = factory();
                 view.Dock = DockStyle.Fill;
                 _views[key] = view;
             }
 
-            if(!pnlContent.Controls.Contains(view))
+            if (!pnlContent.Controls.Contains(view))
             {
                 pnlContent.Controls.Clear();
                 pnlContent.Controls.Add(view);

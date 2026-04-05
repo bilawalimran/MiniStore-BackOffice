@@ -36,6 +36,7 @@
             statusStrip = new StatusStrip();
             tsLabelStatus = new ToolStripStatusLabel();
             pnlContent = new Panel();
+            btnCustomer = new Button();
             pnlHeader.SuspendLayout();
             flpRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picUserIcon).BeginInit();
@@ -68,7 +69,7 @@
             // 
             // picUserIcon
             // 
-            picUserIcon.Image = WindowsApp.Properties.Resources.user;
+            picUserIcon.Image = Properties.Resources.user;
             picUserIcon.Location = new Point(3, 3);
             picUserIcon.Name = "picUserIcon";
             picUserIcon.Size = new Size(43, 45);
@@ -97,7 +98,7 @@
             // 
             // pbLogo
             // 
-            pbLogo.Image = WindowsApp.Properties.Resources.building_store;
+            pbLogo.Image = Properties.Resources.building_store;
             pbLogo.Location = new Point(3, 3);
             pbLogo.Name = "pbLogo";
             pbLogo.Size = new Size(47, 45);
@@ -117,6 +118,7 @@
             // 
             flpNav.Controls.Add(btnDashboard);
             flpNav.Controls.Add(btnProducts);
+            flpNav.Controls.Add(btnCustomer);
             flpNav.Controls.Add(btnOrders);
             flpNav.Controls.Add(btnReports);
             flpNav.Controls.Add(btnSync);
@@ -133,7 +135,7 @@
             // 
             btnDashboard.FlatStyle = FlatStyle.Flat;
             btnDashboard.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDashboard.Image = WindowsApp.Properties.Resources.dashboard;
+            btnDashboard.Image = Properties.Resources.dashboard;
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
             btnDashboard.Location = new Point(3, 3);
             btnDashboard.Name = "btnDashboard";
@@ -148,7 +150,7 @@
             // 
             btnProducts.FlatStyle = FlatStyle.Flat;
             btnProducts.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnProducts.Image = WindowsApp.Properties.Resources.cheese;
+            btnProducts.Image = Properties.Resources.cheese;
             btnProducts.ImageAlign = ContentAlignment.MiddleLeft;
             btnProducts.Location = new Point(3, 45);
             btnProducts.Name = "btnProducts";
@@ -163,9 +165,9 @@
             // 
             btnOrders.FlatStyle = FlatStyle.Flat;
             btnOrders.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnOrders.Image = WindowsApp.Properties.Resources.arrows_sort;
+            btnOrders.Image = Properties.Resources.arrows_sort;
             btnOrders.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOrders.Location = new Point(3, 84);
+            btnOrders.Location = new Point(3, 125);
             btnOrders.Name = "btnOrders";
             btnOrders.Size = new Size(125, 32);
             btnOrders.TabIndex = 2;
@@ -178,23 +180,23 @@
             // 
             btnReports.FlatStyle = FlatStyle.Flat;
             btnReports.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReports.Image = WindowsApp.Properties.Resources.report_analytics;
+            btnReports.Image = Properties.Resources.report_analytics;
             btnReports.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReports.Location = new Point(3, 122);
+            btnReports.Location = new Point(3, 163);
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(125, 39);
             btnReports.TabIndex = 3;
             btnReports.Text = "Reports";
             btnReports.TextAlign = ContentAlignment.MiddleLeft;
             btnReports.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnReports.Click += btnReports_Click;
             // 
             // btnSync
             // 
             btnSync.FlatStyle = FlatStyle.Flat;
             btnSync.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSync.Image = WindowsApp.Properties.Resources.rotate_clockwise;
             btnSync.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSync.Location = new Point(3, 167);
+            btnSync.Location = new Point(3, 208);
             btnSync.Name = "btnSync";
             btnSync.Size = new Size(125, 35);
             btnSync.TabIndex = 4;
@@ -206,9 +208,9 @@
             // 
             btnLogs.FlatStyle = FlatStyle.Flat;
             btnLogs.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogs.Image = WindowsApp.Properties.Resources.logs;
+            btnLogs.Image = Properties.Resources.logs;
             btnLogs.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogs.Location = new Point(3, 208);
+            btnLogs.Location = new Point(3, 249);
             btnLogs.Name = "btnLogs";
             btnLogs.Size = new Size(125, 36);
             btnLogs.TabIndex = 5;
@@ -220,9 +222,9 @@
             // 
             btnSettings.FlatStyle = FlatStyle.Flat;
             btnSettings.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSettings.Image = WindowsApp.Properties.Resources.adjustments_alt;
+            btnSettings.Image = Properties.Resources.adjustments_alt;
             btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSettings.Location = new Point(3, 250);
+            btnSettings.Location = new Point(3, 291);
             btnSettings.Name = "btnSettings";
             btnSettings.Size = new Size(125, 36);
             btnSettings.TabIndex = 6;
@@ -253,6 +255,21 @@
             pnlContent.Name = "pnlContent";
             pnlContent.Size = new Size(669, 375);
             pnlContent.TabIndex = 3;
+            // 
+            // btnCustomer
+            // 
+            btnCustomer.FlatStyle = FlatStyle.Flat;
+            btnCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCustomer.Image = Properties.Resources.users3;
+            btnCustomer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCustomer.Location = new Point(3, 84);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(125, 35);
+            btnCustomer.TabIndex = 7;
+            btnCustomer.Text = "Customer";
+            btnCustomer.TextAlign = ContentAlignment.MiddleLeft;
+            btnCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCustomer.Click += btnCustomer_Click;
             // 
             // MainForm
             // 
@@ -301,5 +318,6 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tsLabelStatus;
         private System.Windows.Forms.Panel pnlContent;
+        private Button btnCustomer;
     }
 }
